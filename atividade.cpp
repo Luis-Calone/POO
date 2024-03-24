@@ -1,7 +1,25 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
+
+enum
+{
+    MOUSE,
+    MOUSEPAD,
+    TECLADO,
+    MONITOR,
+    HEADSET
+};
+
+enum
+{
+    CARRO,
+    CAMINHAO,
+    CAMINHOTE
+};
 
 class Cliente
 {
@@ -46,8 +64,8 @@ class Veiculo
 {
 private:
     string tipoDeCarro[3] = {"carro", "caminhao", "caminhonete"};
+    int carro;
     string tipoDeCarga;
-    string modelo;
     string placa;
     int capacidade;
     int quantidade;
@@ -64,6 +82,11 @@ private:
     }
 
 public:
+    void setTipoCarro(int val)
+    {
+        this->carro = val;
+    }
+
     void setQuantidade(int quantidade)
     {
         this->quantidade = quantidade;
@@ -84,38 +107,12 @@ public:
         return this->tipoDeCarga;
     }
 
-    /*
-        void setTipoCarro(string tipo)
-        {
-                this->tipoDeCarro = tipo;
-        }
-    */
-
-    string getTipoCarro(string tipo)
+    string getTipoCarro(int i)
     {
-        string temp = minusculo(tipo);
+        if (i < 0 || i > 2)
+            return "ERRO!";
 
-        if (temp == this->tipoDeCarro[0])
-            return this->tipoDeCarro[0];
-
-        else if (temp == this->tipoDeCarro[1])
-            return this->tipoDeCarro[1];
-
-        else if (temp == this->tipoDeCarro[2])
-            return this->tipoDeCarro[2];
-
-        else
-            return "ERROR!";
-    }
-
-    void setModelo(string modelo)
-    {
-        this->modelo = modelo;
-    }
-
-    string getModelo()
-    {
-        return this->modelo;
+        return this->tipoDeCarro[i];
     }
 
     void setPlaca(string placa)
@@ -139,15 +136,63 @@ public:
     }
 };
 
+class Pedido
+{
+private:
+    Cliente pessoa;
+    Veiculo automovel;
+    string produto[5] = {"Mouse", "Mousepad", "Teclado", "Monitor", "Headset"};
+    int tempoDeEntrega[4] = {15, 20, 25, 30};
+
+public:
+    void setCliente(Cliente pessoa)
+    {
+        this->pessoa = pessoa;
+    }
+
+    void setVeiculo(Veiculo automovel)
+    {
+        this->automovel = automovel;
+    }
+
+    string getProduto(int i)
+    {
+        return this->produto[i];
+    }
+
+    int getEntrega()
+    {
+        return this->tempoDeEntrega[rand() % 4];
+    }
+};
+
+void criaVeiculo(Veiculo automovel, int tipoDeCarro, string placa)
+{
+    automovel.setTipoCarro(tipoDeCarro);
+
+    switch (tipoDeCarro)
+    {
+    case CARRO:
+        automovel.setCapacidade(3500);
+        automovel.setTipoCarga("Fragil");
+        break;
+    case CAMINHAO:
+        automovel.setCapacidade(6500);
+        automovel.setTipoCarga("Pesado");
+        break;
+    case CAMINHOTE:
+        automovel.setCapacidade(5000);
+        automovel.setTipoCarga("Pesado");
+        break;
+    default:
+        break;
+    }
+
+    automovel.setPlaca(placa);
+}
+
 int main(int argc, char *argv[])
 {
-
-    Veiculo automovel;
-
-    automovel.setPlaca("CPD-4042");
-
-    cout << automovel.getPlaca() << "\n";
-    cout << automovel.getTipoCarro("CARRO") << "\n";
 
     return 0;
 }
