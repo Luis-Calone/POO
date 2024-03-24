@@ -1,3 +1,4 @@
+// BIBLIOTECAS
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -5,6 +6,7 @@
 
 using namespace std;
 
+// ENUMS
 enum
 {
     MOUSE,
@@ -20,6 +22,8 @@ enum
     CAMINHAO,
     CAMINHOTE
 };
+/**************************/
+// CLASS
 
 class Cliente
 {
@@ -141,24 +145,45 @@ public:
 class Pedido
 {
 private:
-    Cliente pessoa;
-    Veiculo automovel;
+    Cliente *pessoa;
+    Veiculo *automovel;
     string produto[5] = {"Mouse", "Mousepad", "Teclado", "Monitor", "Headset"};
     int tempoDeEntrega[4] = {15, 20, 25, 30};
+    int produtoIndex;
 
 public:
-    void setCliente(Cliente pessoa)
+    Cliente *getCliente()
+    {
+        return this->pessoa;
+    }
+
+    Veiculo *getVeiculo()
+    {
+        return this->automovel;
+    }
+
+    void setCliente(Cliente *pessoa)
     {
         this->pessoa = pessoa;
     }
 
-    void setVeiculo(Veiculo automovel)
+    void setVeiculo(Veiculo *automovel)
     {
         this->automovel = automovel;
     }
 
-    string getProduto(int i)
+    void setProduto(int produto)
     {
+        this->produtoIndex = produto;
+    }
+
+    string getProduto()
+    {
+        int i = this->produtoIndex;
+
+        if (i < 0 || i > 5)
+            return "ERRO!";
+
         return this->produto[i];
     }
 
@@ -167,6 +192,22 @@ public:
         return this->tempoDeEntrega[rand() % 4];
     }
 };
+/**************************/
+// FUNCTIONS
+
+void criaPedido(Pedido *produto, Cliente *pessoa, Veiculo *automovel, int produtoIndex);
+void criaVeiculo(Veiculo *automovel, int tipoDeCarro, string placa);
+void criaCliente(Cliente *pessoa, string nome, int idade, string cpf);
+void imprimeVeiculo(Veiculo *automovel);
+void imprimeCliente(Cliente *pessoa);
+
+/**************************/
+void criaPedido(Pedido *produto, Cliente *pessoa, Veiculo *automovel, int produtoIndex)
+{
+    produto->setCliente(pessoa);
+    produto->setVeiculo(automovel);
+    produto->setProduto(produtoIndex);
+}
 
 void criaVeiculo(Veiculo *automovel, int tipoDeCarro, string placa)
 {
@@ -219,17 +260,33 @@ void imprimeCliente(Cliente *pessoa)
     cout << pessoa->getCpf() << "\n";
 }
 
+void imprimePedido(Pedido *produto)
+{
+    imprimeCliente(produto->getCliente());
+
+    cout << "\nINFORMACOES DE PRODUTO: " << endl;
+    cout << produto->getProduto() << endl;
+    cout << produto->getEntrega() << " dias uteis para entrega" << endl;
+
+    imprimeVeiculo(produto->getVeiculo());
+}
+
+/**************************/
 int main(int argc, char *argv[])
 {
+    srand(time(NULL));
+
+    Pedido *produto = new Pedido;
     Veiculo *automovel = new Veiculo;
     Cliente *pessoa = new Cliente;
 
     criaVeiculo(automovel, CAMINHAO, "NMR-0604");
     criaCliente(pessoa, "Luis Calone", 20, "05759475964");
+    criaPedido(produto, pessoa, automovel, 3);
 
-    imprimeVeiculo(automovel);
-    imprimeCliente(pessoa);
+    imprimePedido(produto);
 
+    delete produto;
     delete pessoa;
     delete automovel;
     return EXIT_SUCCESS;
