@@ -25,7 +25,7 @@ class Cliente
 {
 private:
     string nome;
-    int cpf;
+    string cpf;
     int idade;
 
 public:
@@ -34,7 +34,7 @@ public:
         this->nome = nome;
     }
 
-    void setCpf(int cpf)
+    void setCpf(string cpf)
     {
         this->cpf = cpf;
     }
@@ -49,7 +49,7 @@ public:
         return this->idade;
     }
 
-    int getCpf()
+    string getCpf()
     {
         return this->cpf;
     }
@@ -107,8 +107,10 @@ public:
         return this->tipoDeCarga;
     }
 
-    string getTipoCarro(int i)
+    string getTipoCarro()
     {
+        int i = this->carro;
+
         if (i < 0 || i > 2)
             return "ERRO!";
 
@@ -166,33 +168,69 @@ public:
     }
 };
 
-void criaVeiculo(Veiculo automovel, int tipoDeCarro, string placa)
+void criaVeiculo(Veiculo *automovel, int tipoDeCarro, string placa)
 {
-    automovel.setTipoCarro(tipoDeCarro);
+    automovel->setTipoCarro(tipoDeCarro);
 
     switch (tipoDeCarro)
     {
     case CARRO:
-        automovel.setCapacidade(3500);
-        automovel.setTipoCarga("Fragil");
+        automovel->setCapacidade(3500);
+        automovel->setTipoCarga("Fragil");
         break;
     case CAMINHAO:
-        automovel.setCapacidade(6500);
-        automovel.setTipoCarga("Pesado");
+        automovel->setCapacidade(6500);
+        automovel->setTipoCarga("Pesado");
         break;
     case CAMINHOTE:
-        automovel.setCapacidade(5000);
-        automovel.setTipoCarga("Pesado");
+        automovel->setCapacidade(5000);
+        automovel->setTipoCarga("Pesado");
         break;
     default:
         break;
     }
 
-    automovel.setPlaca(placa);
+    automovel->setPlaca(placa);
+}
+
+void criaCliente(Cliente *pessoa, string nome, int idade, string cpf)
+{
+    pessoa->setCpf(cpf);
+    pessoa->setIdade(idade);
+    pessoa->setNome(nome);
+}
+
+void imprimeVeiculo(Veiculo *automovel)
+{
+    cout << "INFORMACOES SOBRE O VEICULO: \n"
+         << endl;
+    cout << automovel->getTipoCarro() << endl;
+    cout << automovel->getPlaca() << endl;
+    cout << automovel->getCapacidade() << endl;
+    cout << automovel->getTipoCarga() << endl;
+}
+
+void imprimeCliente(Cliente *pessoa)
+{
+    cout << "INFORMACOES SOBRE O CLIENTE: \n"
+         << endl;
+    cout << pessoa->getNome() << "\n";
+    cout << pessoa->getIdade() << "\n";
+    cout << pessoa->getCpf() << "\n";
 }
 
 int main(int argc, char *argv[])
 {
+    Veiculo *automovel = new Veiculo;
+    Cliente *pessoa = new Cliente;
 
-    return 0;
+    criaVeiculo(automovel, CAMINHAO, "NMR-0604");
+    criaCliente(pessoa, "Luis Calone", 20, "05759475964");
+
+    imprimeVeiculo(automovel);
+    imprimeCliente(pessoa);
+
+    delete pessoa;
+    delete automovel;
+    return EXIT_SUCCESS;
 }
