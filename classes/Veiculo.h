@@ -14,17 +14,6 @@ private:
     int capacidade;
     int quantidade;
 
-    string minusculo(string palavra)
-    {
-        string temp = palavra;
-        int tam = temp.size();
-
-        for (int i = 0; i < tam; i++)
-            temp[i] = tolower(temp[i]);
-
-        return temp;
-    }
-
 public:
     Veiculo();
     Veiculo(int carro, string tipoDeCarga, string placa, int capacidade, int quantidade);
