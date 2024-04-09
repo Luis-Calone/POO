@@ -1,1 +1,1 @@
-g++ -o main.exe main.cpp classes\Veiculo.cpp
+g++ -o main.exe main.cpp classes\Veiculo.cpp classes\Pedidos.cpp classes\Cliente.cpp
