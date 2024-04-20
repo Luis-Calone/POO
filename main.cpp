@@ -1,8 +1,8 @@
 #include <iostream>
 #include <time.h>
-#include "classes\Veiculo.h"
-#include "classes\Pedidos.h"
-#include "classes\Cliente.h"
+#include "headers/Veiculo.h"
+#include "headers/Pedidos.h"
+#include "headers/Cliente.h"
 
 using namespace std;
 

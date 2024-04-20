@@ -1,18 +1,18 @@
 #include <iostream>
-#include "Veiculo.h"
+#include "../headers/Veiculo.h"
 
 Veiculo::Veiculo()
 {
-    this->carro = 0;
+    this->tipoCarro = "";
     this->tipoDeCarga = "";
     this->placa = "";
     this->capacidade = 0;
     this->quantidade = 0;
 }
 
-Veiculo::Veiculo(int carro, string tipoDeCarga, string placa, int capacidade, int quantidade)
+Veiculo::Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade)
 {
-    setCarro(carro);
+    setCarro(tipoCarro);
     setCarga(tipoDeCarga);
     setPlaca(placa);
     setCapacidade(capacidade);
@@ -21,19 +21,19 @@ Veiculo::Veiculo(int carro, string tipoDeCarga, string placa, int capacidade, in
 
 Veiculo::~Veiculo() {}
 
-int Veiculo::setCarro(int carro)
+int Veiculo::setCarro(string tipoCarro)
 {
-    if (carro < 0 || carro >= 3)
+    if (tipoCarro == "")
         return 0;
 
-    this->carro = carro;
+    this->tipoCarro = tipoCarro;
 
     return 1;
 }
 
 string Veiculo::getCarro()
 {
-    return this->tipoDeCarro[this->carro];
+    return this->tipoCarro;
 }
 
 int Veiculo::setCarga(string carga)
@@ -68,10 +68,10 @@ string Veiculo::getPlaca()
 
 int Veiculo::setCapacidade(int capacidade)
 {
-    if (carro < 0)
+    if (capacidade <= 0)
         return 0;
 
-    this->carro = carro;
+    this->capacidade = capacidade;
 
     return 1;
 }

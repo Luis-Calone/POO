@@ -6,9 +6,8 @@ using namespace std;
 
 class Veiculo
 {
-private:
-    string tipoDeCarro[3] = {"carro", "caminhao", "caminhonete"};
-    int carro;
+protected:
+    string tipoCarro;
     string tipoDeCarga;
     string placa;
     int capacidade;
@@ -16,10 +15,10 @@ private:
 
 public:
     Veiculo();
-    Veiculo(int carro, string tipoDeCarga, string placa, int capacidade, int quantidade);
+    Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade);
     ~Veiculo();
 
-    int setCarro(int carro);
+    int setCarro(string tipoCarro);
     string getCarro();
 
     int setCarga(string tipoDeCarga);
