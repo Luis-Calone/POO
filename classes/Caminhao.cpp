@@ -55,3 +55,16 @@ float Caminhao::getLargura()
 
     return this->largura;
 }
+
+ostream &operator<<(ostream &out, Caminhao *veiculo)
+{
+    out << "Veiculo: " << veiculo->getCarro() << endl
+        << "Placa: " << veiculo->getPlaca() << endl
+        << "Largura: " << veiculo->getLargura() << endl
+        << "Altura: " << veiculo->getAltura() << endl
+        << "Capacidade: " << veiculo->getCapacidade() << endl
+        << "Carga: " << veiculo->getCarga() << endl
+        << "Quantidade: " << veiculo->getQuantidade() << endl;
+
+    return out;
+}

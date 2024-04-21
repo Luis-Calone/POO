@@ -32,6 +32,8 @@ public:
 
     int setQuantidade(int quantidade);
     int getQuantidade();
+
+    friend ostream &operator<<(ostream &out, Veiculo *veiculo);
 };
 
 #endif

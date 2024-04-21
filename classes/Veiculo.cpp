@@ -95,3 +95,14 @@ int Veiculo::getQuantidade()
 {
     return this->quantidade;
 }
+
+ostream &operator<<(ostream &out, Veiculo *veiculo)
+{
+    out << "Veiculo: " << veiculo->getCarro() << endl
+        << "Placa: " << veiculo->getPlaca() << endl
+        << "Capacidade: " << veiculo->getCapacidade() << endl
+        << "Carga: " << veiculo->getCarga() << endl
+        << "Quantidade: " << veiculo->getQuantidade() << endl;
+
+    return out;
+}

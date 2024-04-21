@@ -1,8 +1,11 @@
 #include <iostream>
 #include <time.h>
+#include <list>
 #include "headers/Veiculo.h"
 #include "headers/Pedidos.h"
 #include "headers/Cliente.h"
+#include "headers/Caminhao.h"
+#include "headers/Garagem.h"
 
 using namespace std;
 
@@ -13,23 +16,22 @@ int main()
     clock_t tempo = clock();
     double t;
 
-    Veiculo *automovel = new Veiculo(0, "Areia", "4D42DD2", 200, 300);
-    Cliente *pessoa = new Cliente("Luis Calone", "05805805864", 20);
-    Pedidos *pedido = new Pedidos(pessoa, automovel, 2, rand() % 10 + 5);
+    Caminhao *caminhao = new Caminhao("Caminhao", 10.5, 52.3, "Maconha", "BRA2E19", 500, 0);
+    Garagem *garagem = new Garagem();
 
-    cout << automovel->getCarro() << endl;
-    cout << pessoa->getNome() << endl;
-    cout << pedido->getProduto() << endl;
+    cout << "" << caminhao << endl;
 
-    delete automovel;
-    delete pessoa;
-    delete pedido;
+    garagem->adicionaVeiculo(caminhao);
+    // garagem->imprimeVeiculos();
 
     t = (double)(clock() - tempo) / CLOCKS_PER_SEC;
 
     cout << endl;
     cout << endl;
     cout << t << endl;
+
+    delete caminhao;
+    delete garagem;
 
     return EXIT_SUCCESS;
 }
