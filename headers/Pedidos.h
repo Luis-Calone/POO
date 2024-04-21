@@ -12,7 +12,7 @@ private:
 
     Cliente *pessoa;
     Veiculo *automovel;
-    string produtos[5] = {"Mouse", "Mousepad", "Teclado", "Monitor", "Headset"};
+    string produto;
     int produto;
     int entrega;
 
