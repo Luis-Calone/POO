@@ -1,12 +1,12 @@
 @echo off
 
 SET EXECUTAVEL = main.exe 
-SET MAIN = main.cpp
-SET HEADERa = classes/Veiculo.cpp
-SET HEADERb = classes/Cliente.cpp
-SET HEADERc = classes/Pedidos.cpp
+@REM SET MAIN = main.cpp
+@REM SET HEADERa = classes/Veiculo.cpp
+@REM SET HEADERb = classes/Cliente.cpp
+@REM SET HEADERc = classes/Pedidos.cpp
 
-g++ -o %EXECUTAVEL% %MAIN% %HEADERa% %HEADERb% %HEADERc%
+g++ -o %EXECUTAVEL% classes/Veiculo.cpp classes/Cliente.cpp classes/Pedidos.cpp
 
 IF %ERRORLEVEL% EQU 0 (
 

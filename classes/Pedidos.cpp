@@ -75,10 +75,7 @@ Veiculo *Pedidos::getVeiculo()
 
 string Pedidos::getProduto()
 {
-    if (this->produto < 0)
-        return 0;
-
-    return this->produtos[this->produto];
+    return this->produto;
 }
 
 int Pedidos::getEntrega()

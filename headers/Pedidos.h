@@ -9,15 +9,12 @@ using namespace std;
 class Pedidos
 {
 private:
-
     Cliente *pessoa;
     Veiculo *automovel;
     string produto;
-    int produto;
     int entrega;
 
 public:
-    
     Pedidos();
     Pedidos(Cliente *pessoa, Veiculo *automovel, int produto, int entrega);
     ~Pedidos();
