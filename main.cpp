@@ -45,6 +45,7 @@ int main()
 
     Veiculo *temp = gerente->entregadorProximo();
 
+    temp->setCarga("Caixa de pitaia");
     cout << "" << temp << endl;
 
     t = (double)(clock() - tempo) / CLOCKS_PER_SEC;
@@ -53,7 +54,12 @@ int main()
     cout << endl;
     cout << t << endl;
 
+    garagem->~Garagem();
+
     delete garagem;
+    delete pessoa;
+    delete produto;
+    delete gerente;
 
     return EXIT_SUCCESS;
 }
