@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <list>
+#include <cmath>
 #include "Veiculo.h"
 
 class Garagem
@@ -18,6 +19,8 @@ public:
     int removeVeiculo(Veiculo *veiculo);
     Veiculo *buscaPlaca(string placa);
     void imprimeVeiculos();
+    Veiculo *maisProx();
+
 };
 
 #endif

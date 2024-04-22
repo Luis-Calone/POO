@@ -1,9 +1,9 @@
 #include <iostream>
-#include "../headers/Pedidos.h"
+#include "../headers/Pedido.h"
 
 using namespace std;
 
-Pedidos::Pedidos()
+Pedido::Pedido()
 {
     this->automovel = NULL;
     this->pessoa = NULL;
@@ -11,7 +11,7 @@ Pedidos::Pedidos()
     this->produto = -1;
 }
 
-Pedidos::Pedidos(Cliente *pessoa, Veiculo *automovel, int produto, int entrega)
+Pedido::Pedido(Cliente *pessoa, Veiculo *automovel, string produto, int entrega)
 {
     setCliente(pessoa);
     setVeiculo(automovel);
@@ -19,9 +19,9 @@ Pedidos::Pedidos(Cliente *pessoa, Veiculo *automovel, int produto, int entrega)
     setEntrega(entrega);
 }
 
-Pedidos::~Pedidos() {}
+Pedido::~Pedido() {}
 
-int Pedidos::setCliente(Cliente *pessoa)
+int Pedido::setCliente(Cliente *pessoa)
 {
     if (pessoa == NULL)
         return 0;
@@ -30,7 +30,7 @@ int Pedidos::setCliente(Cliente *pessoa)
     return 1;
 }
 
-int Pedidos::setVeiculo(Veiculo *automovel)
+int Pedido::setVeiculo(Veiculo *automovel)
 {
     if (automovel == NULL)
         return 0;
@@ -39,16 +39,16 @@ int Pedidos::setVeiculo(Veiculo *automovel)
     return 1;
 }
 
-int Pedidos::setProduto(int produto)
+int Pedido::setProduto(string produto)
 {
-    if (produto < 0)
+    if (produto == "")
         return 0;
 
     this->produto = produto;
     return 1;
 }
 
-int Pedidos::setEntrega(int entrega)
+int Pedido::setEntrega(int entrega)
 {
     if (entrega < 0)
         return 0;
@@ -57,7 +57,7 @@ int Pedidos::setEntrega(int entrega)
     return 1;
 }
 
-Cliente *Pedidos::getCliente()
+Cliente *Pedido::getCliente()
 {
     if (this->pessoa == NULL)
         return NULL;
@@ -65,7 +65,7 @@ Cliente *Pedidos::getCliente()
     return this->pessoa;
 }
 
-Veiculo *Pedidos::getVeiculo()
+Veiculo *Pedido::getVeiculo()
 {
     if (this->automovel == NULL)
         return NULL;
@@ -73,12 +73,12 @@ Veiculo *Pedidos::getVeiculo()
     return this->automovel;
 }
 
-string Pedidos::getProduto()
+string Pedido::getProduto()
 {
     return this->produto;
 }
 
-int Pedidos::getEntrega()
+int Pedido::getEntrega()
 {
     if (this->entrega < 0)
         return 0;

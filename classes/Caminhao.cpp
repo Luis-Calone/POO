@@ -7,15 +7,16 @@ Caminhao::Caminhao()
     this->largura = 0.0;
 }
 
-Caminhao::Caminhao(string tipoCarro, float altura, float largura, string tipoDeCarga, string placa, int capacidade, int quantidade)
+Caminhao::Caminhao(string tipoCarro, float altura, float largura, string placa, int capacidade, int quantidade, float latitude, float longitude)
 {
     setCarro(tipoCarro);
-    setCarga(tipoDeCarga);
     setPlaca(placa);
     setCapacidade(capacidade);
     setQuantidade(quantidade);
     setAltura(altura);
     setLargura(largura);
+    setLongitude(longitude);
+    setLatitude(latitude);
 }
 
 Caminhao::~Caminhao() {}

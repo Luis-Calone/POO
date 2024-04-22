@@ -11,7 +11,7 @@ class Caminhao : public Veiculo
 
 public:
     Caminhao();
-    Caminhao(string tipoCarro, float alutra, float largura, string tipoDeCarga, string placa, int capacidade, int quantidade);
+    Caminhao(string tipoCarro, float alutra, float largura, string placa, int capacidade, int quantidade, float latitude, float longitude);
     ~Caminhao();
 
     int setAltura(float altura);

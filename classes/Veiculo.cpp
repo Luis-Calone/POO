@@ -10,13 +10,15 @@ Veiculo::Veiculo()
     this->quantidade = 0;
 }
 
-Veiculo::Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade)
+Veiculo::Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade, float lat, float lon)
 {
     setCarro(tipoCarro);
     setCarga(tipoDeCarga);
     setPlaca(placa);
     setCapacidade(capacidade);
     setQuantidade(quantidade);
+    setLongitude(lon);
+    setLatitude(lat);
 }
 
 Veiculo::~Veiculo() {}
@@ -94,6 +96,26 @@ int Veiculo::setQuantidade(int quantidade)
 int Veiculo::getQuantidade()
 {
     return this->quantidade;
+}
+
+void Veiculo::setLatitude(float lat)
+{
+    this->latitude = lat;
+}
+
+void Veiculo::setLongitude(float lon)
+{
+    this->longitude = lon;
+}
+
+float Veiculo::getLatitude()
+{
+    return this->latitude;
+}
+
+float Veiculo::getLongitude()
+{
+    return this->longitude;
 }
 
 ostream &operator<<(ostream &out, Veiculo *veiculo)

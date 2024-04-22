@@ -6,7 +6,7 @@
 #include "Veiculo.h"
 using namespace std;
 
-class Pedidos
+class Pedido
 {
     Cliente *pessoa;
     Veiculo *automovel;
@@ -14,9 +14,9 @@ class Pedidos
     int entrega;
 
 public:
-    Pedidos();
-    Pedidos(Cliente *pessoa, Veiculo *automovel, int produto, int entrega);
-    ~Pedidos();
+    Pedido();
+    Pedido(Cliente *pessoa, Veiculo *automovel, string produto, int entrega);
+    ~Pedido();
 
     int setCliente(Cliente *pessoa);
     Cliente *getCliente();
@@ -24,7 +24,7 @@ public:
     int setVeiculo(Veiculo *automovel);
     Veiculo *getVeiculo();
 
-    int setProduto(int produto);
+    int setProduto(string produto);
     string getProduto();
 
     int setEntrega(int entrega);

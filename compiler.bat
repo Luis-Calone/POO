@@ -6,7 +6,7 @@ SET EXECUTAVEL = main.exe
 @REM SET HEADERb = classes/Cliente.cpp
 @REM SET HEADERc = classes/Pedidos.cpp
 
-g++ -o %EXECUTAVEL% classes/Veiculo.cpp classes/Cliente.cpp classes/Pedidos.cpp
+g++ -o main.exe main.cpp classes/Veiculo.cpp classes/Cliente.cpp classes/Pedido.cpp classes/Caminhao.cpp classes/Garagem.cpp classes/Gerenciador.cpp
 
 IF %ERRORLEVEL% EQU 0 (
 
