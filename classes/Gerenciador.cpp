@@ -16,8 +16,22 @@ Gerenciador::Gerenciador(string nome, string cpf, int idade, string produto)
     this->demanda->setProduto(produto);
 }
 
+Gerenciador::~Gerenciador() {}
+
+int Gerenciador::setVeiculos(Garagem *veiculos)
+{
+    this->veiculos = veiculos;
+
+    return 1;
+}
+
 Veiculo *Gerenciador::entregadorProximo()
 {
     this->demanda->setVeiculo(veiculos->maisProx());
     return veiculos->maisProx();
+}
+
+Pedido *Gerenciador::getPedido()
+{
+    return this->demanda;
 }

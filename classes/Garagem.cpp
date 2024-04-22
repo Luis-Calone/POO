@@ -77,6 +77,8 @@ void Garagem::imprimeVeiculos()
     {
         std::cout << "Veiculo: " << v->getCarro() << std::endl
                   << "Placa: " << v->getPlaca() << std::endl
+                  << "Latitude: " << v->getLatitude() << std::endl
+                  << "Longitude" << v->getLongitude() << std::endl
                   << std::endl;
     }
 }

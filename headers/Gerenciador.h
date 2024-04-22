@@ -17,7 +17,9 @@ public:
     Gerenciador(string nome, string cpf, int idade, string produto);
     ~Gerenciador();
 
+    int setVeiculos(Garagem *veiculos);
     Veiculo *entregadorProximo();
+    Pedido *getPedido();
 };
 
 #endif
