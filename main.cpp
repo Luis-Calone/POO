@@ -27,7 +27,9 @@ int main()
     float lat,
         lon;
     Garagem *garagem = new Garagem();
-    // Gerenciador *gerente = new Gerenciador("Luis", "00022255564", 20, "Caixa de Pitaia");
+    Cliente *pessoa = new Cliente();
+    Pedido *produto = new Pedido();
+    Gerenciador *gerente = new Gerenciador(pessoa, "Luis", "00022255564", 20, produto, "Caixa de Pitaia");
 
     int i = 0;
     for (i; i < 5; i++)
@@ -39,11 +41,11 @@ int main()
     }
 
     garagem->imprimeVeiculos();
-    // gerente->setVeiculos(garagem);
+    gerente->setVeiculos(garagem);
 
-    // Veiculo *temp = gerente->entregadorProximo();
+    Veiculo *temp = gerente->entregadorProximo();
 
-    // cout << "" << temp << endl;
+    cout << "" << temp << endl;
 
     t = (double)(clock() - tempo) / CLOCKS_PER_SEC;
 

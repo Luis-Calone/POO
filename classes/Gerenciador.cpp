@@ -8,11 +8,13 @@ Gerenciador::Gerenciador()
     this->demanda = NULL;
 }
 
-Gerenciador::Gerenciador(string nome, string cpf, int idade, string produto)
+Gerenciador::Gerenciador(Cliente *pessoa, string nome, string cpf, int idade, Pedido *demanda, string produto)
 {
+    this->pessoa = pessoa;
     this->pessoa->setNome(nome);
     this->pessoa->setCpf(cpf);
     this->pessoa->setIdade(idade);
+    this->demanda = demanda;
     this->demanda->setProduto(produto);
 }
 

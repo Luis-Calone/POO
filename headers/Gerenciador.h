@@ -14,7 +14,7 @@ class Gerenciador
 
 public:
     Gerenciador();
-    Gerenciador(string nome, string cpf, int idade, string produto);
+    Gerenciador(Cliente *pessoa, string nome, string cpf, int idade,Pedido *demanda, string produto);
     ~Gerenciador();
 
     int setVeiculos(Garagem *veiculos);
