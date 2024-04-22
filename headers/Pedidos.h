@@ -8,7 +8,6 @@ using namespace std;
 
 class Pedidos
 {
-private:
     Cliente *pessoa;
     Veiculo *automovel;
     string produto;
