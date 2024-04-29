@@ -14,11 +14,11 @@ class Gerenciador
 
 public:
     Gerenciador();
-    Gerenciador(Cliente *pessoa, string nome, string cpf, int idade,Pedido *demanda, string produto);
+    Gerenciador(Cliente *pessoa, string nome, string cpf, string endereco, int idade,Pedido *demanda, string produto);
     ~Gerenciador();
 
     int setVeiculos(Garagem *veiculos);
-    Veiculo *entregadorProximo();
+    //Veiculo *entregadorProximo();
     Pedido *getPedido();
 };
 

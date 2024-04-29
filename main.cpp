@@ -29,25 +29,24 @@ int main()
     Garagem *garagem = new Garagem();
     Cliente *pessoa = new Cliente();
     Pedido *produto = new Pedido();
-    Gerenciador *gerente = new Gerenciador(pessoa, "Luis", "00022255564", 20, produto, "Caixa de Pitaia");
+    Gerenciador *gerente = new Gerenciador(pessoa, "Luis", "00022255564", "Alegrete", 20, produto, "Caixa de Pitaia");
 
     int i = 0;
     for (i; i < 5; i++)
     {
         lat = static_cast<float>(rand() % 90);
         lon = static_cast<float>(rand() % 180);
-        Caminhao *caminhao = new Caminhao("Caminhao", 10.5, 52.3, placas[i], 500, 0, lat, lon);
+        Caminhao *caminhao = new Caminhao("Caminhao", placas[i], 500, 0, "Uruguaiana");
         garagem->adicionaVeiculo(caminhao);
     }
 
     garagem->imprimeVeiculos();
     gerente->setVeiculos(garagem);
-
+    /*
     Veiculo *temp = gerente->entregadorProximo();
 
-    temp->setCarga("Caixa de pitaia");
     cout << "" << temp << endl;
-
+    */
     t = (double)(clock() - tempo) / CLOCKS_PER_SEC;
 
     cout << endl;

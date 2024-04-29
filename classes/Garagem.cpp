@@ -47,7 +47,7 @@ Veiculo *Garagem::buscaPlaca(string placa)
     throw std::runtime_error("PLACA DESCONHECIDA");
 }
 
-Veiculo *Garagem::maisProx()
+/*Veiculo *Garagem::maisProx()
 {
     if (this->veiculos.empty())
         return NULL;
@@ -66,7 +66,7 @@ Veiculo *Garagem::maisProx()
     }
 
     return aux;
-}
+}*/
 
 void Garagem::imprimeVeiculos()
 {
@@ -77,8 +77,6 @@ void Garagem::imprimeVeiculos()
     {
         std::cout << "Veiculo: " << v->getCarro() << std::endl
                   << "Placa: " << v->getPlaca() << std::endl
-                  << "Latitude: " << v->getLatitude() << std::endl
-                  << "Longitude" << v->getLongitude() << std::endl
                   << std::endl;
     }
 }

@@ -8,17 +8,16 @@ Veiculo::Veiculo()
     this->placa = "";
     this->capacidade = 0;
     this->quantidade = 0;
+    this->localizacao = "";
 }
 
-Veiculo::Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade, float lat, float lon)
+Veiculo::Veiculo(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao)
 {
     setCarro(tipoCarro);
-    setCarga(tipoDeCarga);
     setPlaca(placa);
     setCapacidade(capacidade);
     setQuantidade(quantidade);
-    setLongitude(lon);
-    setLatitude(lat);
+    setLocalizacao(localizacao);
 }
 
 Veiculo::~Veiculo() {}
@@ -36,21 +35,6 @@ int Veiculo::setCarro(string tipoCarro)
 string Veiculo::getCarro()
 {
     return this->tipoCarro;
-}
-
-int Veiculo::setCarga(string carga)
-{
-    if (carga == "\0")
-        return 0;
-
-    this->tipoDeCarga = carga;
-
-    return 1;
-}
-
-string Veiculo::getCarga()
-{
-    return this->tipoDeCarga;
 }
 
 int Veiculo::setPlaca(string placa)
@@ -98,24 +82,19 @@ int Veiculo::getQuantidade()
     return this->quantidade;
 }
 
-void Veiculo::setLatitude(float lat)
+int Veiculo::setLocalizacao(string localizacao)
 {
-    this->latitude = lat;
+    if (localizacao == "")
+        return 0;
+
+    this->localizacao = localizacao;
+
+    return 1;
 }
 
-void Veiculo::setLongitude(float lon)
+string Veiculo::getLocalizacao()
 {
-    this->longitude = lon;
-}
-
-float Veiculo::getLatitude()
-{
-    return this->latitude;
-}
-
-float Veiculo::getLongitude()
-{
-    return this->longitude;
+    return this->localizacao;
 }
 
 ostream &operator<<(ostream &out, Veiculo *veiculo)
@@ -123,7 +102,6 @@ ostream &operator<<(ostream &out, Veiculo *veiculo)
     out << "Veiculo: " << veiculo->getCarro() << endl
         << "Placa: " << veiculo->getPlaca() << endl
         << "Capacidade: " << veiculo->getCapacidade() << endl
-        << "Carga: " << veiculo->getCarga() << endl
         << "Quantidade: " << veiculo->getQuantidade() << endl;
 
     return out;

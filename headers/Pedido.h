@@ -11,11 +11,16 @@ class Pedido
     Cliente *pessoa;
     Veiculo *automovel;
     string produto;
-    int entrega;
+    string coleta;
+    string entrega;
+    float peso;
+    float volume;
+    int prioridade;
+    int tempo;
 
 public:
     Pedido();
-    Pedido(Cliente *pessoa, Veiculo *automovel, string produto, int entrega);
+    Pedido(Cliente *pessoa, Veiculo *automovel, string produto, string coleta, string entrega, float peso, float volume, int prioridade, int tempo);
     ~Pedido();
 
     int setCliente(Cliente *pessoa);
@@ -27,8 +32,23 @@ public:
     int setProduto(string produto);
     string getProduto();
 
-    int setEntrega(int entrega);
-    int getEntrega();
+    int setTempo(int tempo);
+    int getTempo();
+
+    int setColeta(string coleta);
+    string getColeta();
+
+    int setEntrega(string entrega);
+    string getEntrega();
+
+    int setPeso(float peso);
+    float getPeso();
+
+    int setVolume(float volume);
+    float getVolume();
+
+    int setPrioridade(int prioridade);
+    int getPrioridade();
 };
 
 #endif

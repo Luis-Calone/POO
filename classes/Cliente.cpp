@@ -5,14 +5,20 @@ Cliente::Cliente()
 {
     this->nome = "";
     this->cpf = "";
+    this->endereco = "";
+    this->telefone = "";
+    this->email = "";
     this->idade = 0;
 }
 
-Cliente::Cliente(string nome, string cpf, int idade)
+Cliente::Cliente(string nome, string cpf, string endereco, string telefone, string email, int idade)
 {
-    setIdade(idade);
-    setCpf(cpf);
     setNome(nome);
+    setCpf(cpf);
+    setEndereco(endereco);
+    setTelefone(telefone);
+    setEmail(email);
+    setIdade(idade);
 }
 
 Cliente::~Cliente() {}
@@ -32,6 +38,33 @@ int Cliente::setCpf(string cpf)
         return 0;
 
     this->cpf = cpf;
+    return 1;
+}
+
+int Cliente::setEndereco(string endereco)
+{
+    if (endereco == "")
+        return 0;
+
+    this->endereco = endereco;
+    return 1;
+}
+
+int Cliente::setTelefone(string telefone)
+{
+    if (telefone == "")
+        return 0;
+
+    this->telefone = telefone;
+    return 1;
+}
+
+int Cliente::setEmail(string email)
+{
+    if (email == "")
+        return 0;
+
+    this->email = email;
     return 1;
 }
 
@@ -58,6 +91,30 @@ string Cliente::getCpf()
         return "";
 
     return this->cpf;
+}
+
+string Cliente::getEndereco()
+{
+    if (this->cpf.empty())
+        return "";
+
+    return this->cpf;
+}
+
+string Cliente::getTelefone()
+{
+    if (this->telefone.empty())
+        return "";
+
+    return this->telefone;
+}
+
+string Cliente::getEmail()
+{
+    if (this->email.empty())
+        return "";
+
+    return this->email;
 }
 
 string Cliente::getNome()

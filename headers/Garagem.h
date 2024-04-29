@@ -19,7 +19,7 @@ public:
     int removeVeiculo(Veiculo *veiculo);
     Veiculo *buscaPlaca(string placa);
     void imprimeVeiculos();
-    Veiculo *maisProx();
+    //Veiculo *maisProx();
 
 };
 

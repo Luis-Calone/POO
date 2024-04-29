@@ -12,19 +12,15 @@ protected:
     string placa;
     int capacidade;
     int quantidade;
-    float latitude;
-    float longitude;
+    string localizacao;
 
 public:
     Veiculo();
-    Veiculo(string tipoCarro, string tipoDeCarga, string placa, int capacidade, int quantidade, float lat, float lon);
+    Veiculo(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao);
     virtual ~Veiculo();
 
     int setCarro(string tipoCarro);
     string getCarro();
-
-    int setCarga(string tipoDeCarga);
-    string getCarga();
 
     int setPlaca(string placa);
     string getPlaca();
@@ -35,11 +31,8 @@ public:
     int setQuantidade(int quantidade);
     int getQuantidade();
 
-    void setLatitude(float lat);
-    float getLatitude();
-
-    void setLongitude(float lon);
-    float getLongitude();
+    int setLocalizacao(string localizacoa);
+    string getLocalizacao();
 
     friend ostream &operator<<(ostream &out, Veiculo *veiculo);
 };

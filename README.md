@@ -7,7 +7,9 @@ das suas necessidades:
 1) Descrever a frota de veículos (carro, camionete, caminhão). Cada veículo tem suas
 particularidades específicas (capacidade de carga, ano de fabricação, chassi,
 modelo, localização, etc…).
+
 2) Descrever os clientes
+
 3) Descrever os pedidos de transportes (e.g., cliente que solicita, tipo de transporte,
 local de coleta, local de entrega, peso da carga, volume da carga).
 
@@ -22,17 +24,22 @@ Nesta segunda etapa, vocês devem primeiramente refatorar o código existente da
 forma:
 
 1) Separar as classes em arquivos separados (em .h e .cpp)
+
 2) Realizar verificações nos métodos set para evitar que dados errados sejam
 inseridos em todos os métodos
+
 3) Adicionar retorno inteiro para o sets e gets. Os métodos devem retornar 1
 quando a operação foi concluída com sucesso, e 0 caso contrário.
+
 4) Adicionar Construtor e Destrutor em todas as classes
+
 5) Implementar herança para a classe de Veículos.
 
 Após, vocês devem implementar uma Classe para gerenciar os veículos. Esta classe deve
 possuir:
 
 1) Uma lista de veículos ativos da empresa
+
 2) Uma série de métodos para interagir com os veículos: 
  a) adicionarVeiculo(...) 
  b) removerVeiculo(...) 
@@ -42,12 +49,15 @@ possuir:
  f) … 
 
 ------------------------------------------------------ TAREFA #3 ------------------------------------------------------
+
 Nesta terceira etapa, vocês devem primeiramente refatorar o código existente da seguinte
 forma:
 
 1) Implementar sobrescrita dos operadores (“==”) e (“<<”) em todas as classes.
+
 2) Implementar a sobrecarga de métodos (e.g., para permitir que tenham
 múltiplas assinaturas). Um exemplo é a adição de carros.
+
 3) Implementar a localização dos veículos e ordens baseados em Latitude e
 Longitude.
 
@@ -56,7 +66,24 @@ entregas/coletas. A classe deve receber como entrada as Ordens e uma instância 
 que gerencia os veículos. Esta nova classe deve:
 
 1) Definir quais veículos serão utilizados e;
+
 2) A ordem de atendimento das demandas. Por exemplo, se a transportadora
 precisa coletar 10 itens, pode-se alocar um caminhão que tenha capacidade
 suficiente para realizar a coleta desses itens. Alternativamente, pode-se
 utilizar múltiplos veículos para a mesma tarefa.
+
+------------------------------------------------------ TAREFA #4 ------------------------------------------------------
+
+Nesta segunda etapa, vocês devem primeiramente refatorar o código existente do colega da
+seguinte forma:
+
+1) Implementar uma classe para gerir os dados de entrada do sistema. Como tarefa inicial, 
+vocês devem ler o arquivo CSV disponível no Moodle e instanciar as classes correspondentes.
+
+2) O CSV é formado pelos seguintes dados:
+Nome,CPF,Endereço,Telefone,Email,Endereço coleta,Endereço entrega,Peso (kg),Volume (m³),Prioridade
+
+3) Caso as classes do sistema não comportem alguma das definições acima, vocês devem 
+alterá-las para deixá-las funcionais.
+
+4) O endereço é uma string. Vocês devem converter para coordenadas latitude, longitude

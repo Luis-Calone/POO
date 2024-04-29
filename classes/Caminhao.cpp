@@ -1,70 +1,24 @@
 #include <iostream>
 #include "../headers/Caminhao.h"
 
-Caminhao::Caminhao()
-{
-    this->altura = 0.0;
-    this->largura = 0.0;
-}
+Caminhao::Caminhao() : Veiculo() {}
 
-Caminhao::Caminhao(string tipoCarro, float altura, float largura, string placa, int capacidade, int quantidade, float latitude, float longitude)
+Caminhao::Caminhao(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao) : Veiculo(tipoCarro, placa, capacidade, quantidade, localizacao)
 {
     setCarro(tipoCarro);
     setPlaca(placa);
     setCapacidade(capacidade);
     setQuantidade(quantidade);
-    setAltura(altura);
-    setLargura(largura);
-    setLongitude(longitude);
-    setLatitude(latitude);
+    setLocalizacao(localizacao);
 }
 
 Caminhao::~Caminhao() {}
-
-int Caminhao::setAltura(float altura)
-{
-    if (altura <= 0.0)
-        return 0;
-
-    this->altura = altura;
-
-    return 1;
-}
-
-float Caminhao::getAltura()
-{
-    if (this->altura <= 0.0)
-        return 0;
-
-    return this->altura;
-}
-
-int Caminhao::setLargura(float largura)
-{
-    if (largura <= 0)
-        return 0;
-
-    this->largura = largura;
-
-    return 1;
-}
-
-float Caminhao::getLargura()
-{
-    if (this->largura <= 0.0)
-        return 0;
-
-    return this->largura;
-}
 
 ostream &operator<<(ostream &out, Caminhao *veiculo)
 {
     out << "Veiculo: " << veiculo->getCarro() << endl
         << "Placa: " << veiculo->getPlaca() << endl
-        << "Largura: " << veiculo->getLargura() << endl
-        << "Altura: " << veiculo->getAltura() << endl
         << "Capacidade: " << veiculo->getCapacidade() << endl
-        << "Carga: " << veiculo->getCarga() << endl
         << "Quantidade: " << veiculo->getQuantidade() << endl;
 
     return out;
