@@ -4,19 +4,18 @@
 Veiculo::Veiculo()
 {
     this->tipoCarro = "";
-    this->tipoDeCarga = "";
     this->placa = "";
-    this->capacidade = 0;
-    this->quantidade = 0;
+    this->peso_max = 0.0;
+    this->volume_max = 0.0;
     this->localizacao = "";
 }
 
-Veiculo::Veiculo(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao)
+Veiculo::Veiculo(string tipoCarro, string placa, float peso_max, float volume_max, string localizacao)
 {
     setCarro(tipoCarro);
     setPlaca(placa);
-    setCapacidade(capacidade);
-    setQuantidade(quantidade);
+    setPeso_max(peso_max);
+    setVolume_max(volume_max);
     setLocalizacao(localizacao);
 }
 
@@ -52,34 +51,34 @@ string Veiculo::getPlaca()
     return this->placa;
 }
 
-int Veiculo::setCapacidade(int capacidade)
+int Veiculo::setPeso_max(float peso_max)
 {
-    if (capacidade <= 0)
+    if (peso_max <= 0.0)
         return 0;
 
-    this->capacidade = capacidade;
+    this->peso_max = peso_max;
 
     return 1;
 }
 
-int Veiculo::getCapacidade()
+float Veiculo::getPeso_max()
 {
-    return this->capacidade;
+    return this->peso_max;
 }
 
-int Veiculo::setQuantidade(int quantidade)
+int Veiculo::setVolume_max(float volume_max)
 {
-    if (quantidade < 0)
+    if (volume_max <= 0.0)
         return 0;
 
-    this->quantidade = quantidade;
+    this->volume_max = volume_max;
 
     return 1;
 }
 
-int Veiculo::getQuantidade()
+float Veiculo::getVolume_max()
 {
-    return this->quantidade;
+    return this->volume_max;
 }
 
 int Veiculo::setLocalizacao(string localizacao)
@@ -101,8 +100,8 @@ ostream &operator<<(ostream &out, Veiculo *veiculo)
 {
     out << "Veiculo: " << veiculo->getCarro() << endl
         << "Placa: " << veiculo->getPlaca() << endl
-        << "Capacidade: " << veiculo->getCapacidade() << endl
-        << "Quantidade: " << veiculo->getQuantidade() << endl;
+        << "Capacidade: " << veiculo->getPeso_max() << endl
+        << "Quantidade: " << veiculo->getVolume_max() << endl;
 
     return out;
 }

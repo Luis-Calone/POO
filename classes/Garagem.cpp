@@ -2,81 +2,55 @@
 #include <list>
 #include "../headers/Garagem.h"
 
-Garagem::Garagem() {}
-
-Garagem::~Garagem()
-{
-    for (auto v : this->veiculos)
-        delete v;
+Garagem::Garagem(){
 }
 
-std::list<Veiculo *> Garagem::getVeiculos()
-{
-    return veiculos;
+Garagem::~Garagem(){
+    this->limpaLista();
 }
 
-int Garagem::adicionaVeiculo(Veiculo *veiculo)
-{
-    if (!veiculo)
-        return 0;
+Veiculo* Garagem::getVeiculos(int index){
+    if (index > 0 && index <= this->veiculos.size()){
+        auto it = this->veiculos.begin();
+        advance(it,index - 1);
 
-    this->veiculos.push_front(veiculo);
-    return 1;
-}
-
-int Garagem::removeVeiculo(Veiculo *veiculo)
-{
-    if (!veiculo)
-        return 0;
-
-    this->veiculos.remove(veiculo);
-    return 1;
-}
-
-Veiculo *Garagem::buscaPlaca(string placa)
-{
-    if (placa == "" || placa.size() != 7)
-        throw std::runtime_error("PLACA INVALIDA");
-
-    for (auto v : this->veiculos)
-    {
-        if (v->getPlaca() == placa)
-            return v;
+        return *it;
     }
 
-    throw std::runtime_error("PLACA DESCONHECIDA");
+    return nullptr;
 }
 
-/*Veiculo *Garagem::maisProx()
-{
-    if (this->veiculos.empty())
-        return NULL;
+int Garagem::adicionaVeiculos(Veiculo *veiculo){
+    if(!veiculo){
+        return 0;
+    }
 
-    double cood[2] = {90, 180};
-    Veiculo *aux;
+    this->veiculos.push_back(veiculo);
 
-    for (auto &v : this->veiculos)
-    {
-        if (fabs(v->getLatitude()) < cood[0] && fabs(v->getLongitude()) < cood[1])
-        {
-            aux = v;
-            cood[0] = {fabs(v->getLatitude())};
-            cood[1] = {fabs(v->getLongitude())};
+    return 1;
+}
+
+int Garagem::removeVeiculos(Veiculo *veiculo){
+    if(!veiculo){
+        return 0;
+    }
+
+    for (auto it = this->veiculos.begin(); it != this->veiculos.end(); ++it){
+        if (*it == veiculo) {
+            delete *it;
+            this->veiculos.erase(it);
         }
     }
 
-    return aux;
-}*/
+    return 1;
+}
 
-void Garagem::imprimeVeiculos()
-{
-    if (this->veiculos.empty())
-        throw std::runtime_error("LISTA VAZIA!");
-
-    for (auto &v : this->veiculos)
-    {
-        std::cout << "Veiculo: " << v->getCarro() << std::endl
-                  << "Placa: " << v->getPlaca() << std::endl
-                  << std::endl;
+int Garagem::limpaLista(){
+    for(Veiculo* i : this->veiculos){
+        delete i;
     }
+
+    this->veiculos.clear();
+
+    return 1;
 }

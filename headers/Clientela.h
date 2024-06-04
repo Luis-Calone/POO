@@ -14,11 +14,9 @@ public:
     Clientela();
     ~Clientela();
 
-    Cliente* getClientes();
+    Cliente* getClientes(int index);
     int adicionaClientes(Cliente *veiculo);
     int removeClientes(Cliente *veiculo);
-    void buscaClientela(int index);
-    void imprimeClientes();
     int limpaLista();
 };
 

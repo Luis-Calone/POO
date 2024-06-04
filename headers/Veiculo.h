@@ -8,15 +8,14 @@ class Veiculo
 {
 protected:
     string tipoCarro;
-    string tipoDeCarga;
     string placa;
-    int capacidade;
-    int quantidade;
+    float peso_max;
+    float volume_max;
     string localizacao;
 
 public:
     Veiculo();
-    Veiculo(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao);
+    Veiculo(string tipoCarro, string placa, float peso_max, float volume_max, string localizacao);
     virtual ~Veiculo();
 
     int setCarro(string tipoCarro);
@@ -25,11 +24,11 @@ public:
     int setPlaca(string placa);
     string getPlaca();
 
-    int setCapacidade(int capacidade);
-    int getCapacidade();
+    int setPeso_max(float peso_max);
+    float getPeso_max();
 
-    int setQuantidade(int quantidade);
-    int getQuantidade();
+    int setVolume_max(float volume_max);
+    float getVolume_max();
 
     int setLocalizacao(string localizacoa);
     string getLocalizacao();

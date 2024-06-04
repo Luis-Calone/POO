@@ -14,13 +14,10 @@ public:
     Garagem();
     ~Garagem();
 
-    std::list<Veiculo *> getVeiculos(); // retorna a lista de veiculos
-    int adicionaVeiculo(Veiculo *veiculo);
-    int removeVeiculo(Veiculo *veiculo);
-    Veiculo *buscaPlaca(string placa);
-    void imprimeVeiculos();
-    //Veiculo *maisProx();
-
+    Veiculo* getVeiculos(int index);
+    int adicionaVeiculos(Veiculo *veiculo);
+    int removeVeiculos(Veiculo *veiculo);
+    int limpaLista();
 };
 
 #endif

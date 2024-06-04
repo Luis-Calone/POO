@@ -3,6 +3,9 @@
 
 Gerenciador::Gerenciador()
 {
+    this->clientes = nullptr;
+    this->veiculos = nullptr;
+    this->pedidos = nullptr;
 }
 
 Gerenciador::Gerenciador(Clientela *clientes, Garagem *veiculos, Demanda *pedidos)
