@@ -1,5 +1,4 @@
 #include <iostream>
-#include <time.h>
 #include <list>
 #include <cstdlib>
 #include "headers/Veiculo.h"
@@ -8,57 +7,27 @@
 #include "headers/Caminhao.h"
 #include "headers/Garagem.h"
 #include "headers/Gerenciador.h"
+#include "headers/Leitor.h"
+#include "headers/Demanda.h"
+#include "headers/Clientela.h"
 
 using namespace std;
 
 int main()
 {
-    srand(time(NULL));
+    Garagem *lista_de_veiculos = new Garagem();
+    Clientela *lista_de_clientes = new Clientela();
+    Demanda *lista_de_pedidos = new Demanda();
+    Gerenciador *gerente = new Gerenciador(lista_de_clientes, lista_de_veiculos, lista_de_pedidos);
 
-    clock_t tempo = clock();
-    double t;
+    Leitor *processador = new Leitor(lista_de_clientes, lista_de_veiculos, lista_de_pedidos);
+    processador->lerArquivo("dados_entregas.csv", 1);
 
-    string placas[] = {"BRA2E19",
-                       "BRA2E29",
-                       "BRA2A95",
-                       "BRA2E32",
-                       "BRA2B91"};
-
-    float lat,
-        lon;
-    Garagem *garagem = new Garagem();
-    Cliente *pessoa = new Cliente();
-    Pedido *produto = new Pedido();
-    Gerenciador *gerente = new Gerenciador(pessoa, "Luis", "00022255564", "Alegrete", 20, produto, "Caixa de Pitaia");
-
-    int i = 0;
-    for (i; i < 5; i++)
-    {
-        lat = static_cast<float>(rand() % 90);
-        lon = static_cast<float>(rand() % 180);
-        Caminhao *caminhao = new Caminhao("Caminhao", placas[i], 500, 0, "Uruguaiana");
-        garagem->adicionaVeiculo(caminhao);
-    }
-
-    garagem->imprimeVeiculos();
-    gerente->setVeiculos(garagem);
-    /*
-    Veiculo *temp = gerente->entregadorProximo();
-
-    cout << "" << temp << endl;
-    */
-    t = (double)(clock() - tempo) / CLOCKS_PER_SEC;
-
-    cout << endl;
-    cout << endl;
-    cout << t << endl;
-
-    garagem->~Garagem();
-
-    delete garagem;
-    delete pessoa;
-    delete produto;
+    delete lista_de_clientes;
+    delete lista_de_veiculos;
+    delete lista_de_pedidos;
     delete gerente;
+    delete processador;
 
-    return EXIT_SUCCESS;
+    return 0;
 }

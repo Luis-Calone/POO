@@ -8,8 +8,6 @@ using namespace std;
 
 class Pedido
 {
-    Cliente *pessoa;
-    Veiculo *automovel;
     string produto;
     string coleta;
     string entrega;
@@ -20,14 +18,8 @@ class Pedido
 
 public:
     Pedido();
-    Pedido(Cliente *pessoa, Veiculo *automovel, string produto, string coleta, string entrega, float peso, float volume, int prioridade, int tempo);
+    Pedido(string produto, string coleta, string entrega, float peso, float volume, int prioridade, int tempo);
     ~Pedido();
-
-    int setCliente(Cliente *pessoa);
-    Cliente *getCliente();
-
-    int setVeiculo(Veiculo *automovel);
-    Veiculo *getVeiculo();
 
     int setProduto(string produto);
     string getProduto();

@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "-o",
+                "${workspaceFolder}/app.exe",
+                "-I", "C:/Users/Pedro Vitor/Downloads/curl-win64-latest/curl-8.8.0_1-win64-mingw/include",
+                "-L", "C:/Users/Pedro Vitor/Downloads/curl-win64-latest/curl-8.8.0_1-win64-mingw/lib",
+                "-lcurl",
+                "-lws2_32",
+                "-I", "C:/Users/Pedro Vitor/Downloads/jsoncpp-master/jsoncpp-master/include",
+                "-L", "C:/Users/Pedro Vitor/Downloads/jsoncpp-master/jsoncpp-master/lib",
+                "-ljsoncpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task by Debugger."
+        }
+    ]
+}

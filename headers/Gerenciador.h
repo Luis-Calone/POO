@@ -3,23 +3,28 @@
 
 #include <iostream>
 #include "Garagem.h"
-#include "Pedido.h"
-#include "Cliente.h"
+#include "Demanda.h"
+#include "Clientela.h"
 
 class Gerenciador
 {
-    Cliente *pessoa;
+    Clientela *clientes;
     Garagem *veiculos;
-    Pedido *demanda;
+    Demanda *pedidos;
 
 public:
     Gerenciador();
-    Gerenciador(Cliente *pessoa, string nome, string cpf, string endereco, int idade,Pedido *demanda, string produto);
+    Gerenciador(Clientela *clientes, Garagem *veiculos, Demanda *pedidos);
     ~Gerenciador();
 
-    int setVeiculos(Garagem *veiculos);
-    //Veiculo *entregadorProximo();
-    Pedido *getPedido();
+    int setClientela(Clientela *clientes);
+    int setGaragem(Garagem *veiculos);
+    int setDemanda(Demanda *pedidos);
+
+    Clientela* getClientela();
+    Garagem* getGaragem();
+    Demanda* getDemanda();
+    
 };
 
 #endif

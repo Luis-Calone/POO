@@ -5,8 +5,6 @@ using namespace std;
 
 Pedido::Pedido()
 {
-    this->automovel = NULL;
-    this->pessoa = NULL;
     this->produto = "";
     this->coleta = "";
     this->entrega = "";
@@ -16,10 +14,8 @@ Pedido::Pedido()
     this->tempo = -1;
 }
 
-Pedido::Pedido(Cliente *pessoa, Veiculo *automovel, string produto, string coleta, string entrega, float peso, float volume, int prioridade, int tempo)
+Pedido::Pedido(string produto, string coleta, string entrega, float peso, float volume, int prioridade, int tempo)
 {
-    setCliente(pessoa);
-    setVeiculo(automovel);
     setProduto(produto);
     setColeta(coleta);
     setEntrega(entrega);
@@ -30,33 +26,6 @@ Pedido::Pedido(Cliente *pessoa, Veiculo *automovel, string produto, string colet
 }
 
 Pedido::~Pedido() {}
-
-int Pedido::setCliente(Cliente *pessoa)
-{
-    if (pessoa == NULL)
-        return 0;
-
-    this->pessoa = pessoa;
-    return 1;
-}
-
-int Pedido::setVeiculo(Veiculo *automovel)
-{
-    if (automovel == NULL)
-        return 0;
-
-    this->automovel = automovel;
-    return 1;
-}
-
-int Pedido::setProduto(string produto)
-{
-    if (produto == "")
-        return 0;
-
-    this->produto = produto;
-    return 1;
-}
 
 int Pedido::setTempo(int tempo)
 {
@@ -110,22 +79,6 @@ int Pedido::setPrioridade(int prioridade)
 
     this->prioridade = prioridade;
     return 1;
-}
-
-Cliente *Pedido::getCliente()
-{
-    if (this->pessoa == NULL)
-        return NULL;
-
-    return this->pessoa;
-}
-
-Veiculo *Pedido::getVeiculo()
-{
-    if (this->automovel == NULL)
-        return NULL;
-
-    return this->automovel;
 }
 
 string Pedido::getProduto()
