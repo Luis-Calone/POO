@@ -27,6 +27,15 @@ Pedido::Pedido(string produto, string coleta, string entrega, float peso, float 
 
 Pedido::~Pedido() {}
 
+int Pedido::setProduto(string produto)
+{
+    if (produto == "")
+        return 0;
+
+    this->produto = produto;
+    return 1;
+}
+
 int Pedido::setTempo(int tempo)
 {
     if (tempo < 0)

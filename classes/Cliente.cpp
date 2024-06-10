@@ -124,3 +124,15 @@ string Cliente::getNome()
 
     return this->nome;
 }
+
+std::ostream& operator<<(std::ostream& os, const Cliente& cliente) { //modelo de saida
+    cout 
+    << "\n"
+    << "Cliente: " << cliente.nome << "\n" 
+    << "Idade: " << cliente.idade << "\n" 
+    << "Telefone: " << cliente.telefone << "\n"
+    << "Email: " << cliente.email << "\n"
+    << "CPF: " << cliente.cpf << "\n"
+    << "Endereco: " << cliente.endereco << "\n"
+    << endl;
+}

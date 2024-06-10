@@ -23,6 +23,10 @@ int main()
     Leitor *processador = new Leitor(lista_de_clientes, lista_de_veiculos, lista_de_pedidos);
     processador->lerArquivo("dados_entregas.csv", 1);
 
+    Cliente* teste = lista_de_clientes->getClientes(1);
+    cout << *teste << endl;
+    
+
     delete lista_de_clientes;
     delete lista_de_veiculos;
     delete lista_de_pedidos;

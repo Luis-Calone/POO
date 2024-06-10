@@ -7,7 +7,7 @@ using namespace std;
 class Veiculo
 {
 protected:
-    string tipoCarro;
+    string tipo_carro;
     string placa;
     float peso_max;
     float volume_max;
@@ -15,10 +15,10 @@ protected:
 
 public:
     Veiculo();
-    Veiculo(string tipoCarro, string placa, float peso_max, float volume_max, string localizacao);
+    Veiculo(string tipo_carro, string placa, float peso_max, float volume_max, string localizacao);
     virtual ~Veiculo();
 
-    int setCarro(string tipoCarro);
+    int setCarro(string tipo_carro);
     string getCarro();
 
     int setPlaca(string placa);

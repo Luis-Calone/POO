@@ -3,16 +3,16 @@
 
 Veiculo::Veiculo()
 {
-    this->tipoCarro = "";
+    this->tipo_carro = "";
     this->placa = "";
     this->peso_max = 0.0;
     this->volume_max = 0.0;
     this->localizacao = "";
 }
 
-Veiculo::Veiculo(string tipoCarro, string placa, float peso_max, float volume_max, string localizacao)
+Veiculo::Veiculo(string tipo_carro, string placa, float peso_max, float volume_max, string localizacao)
 {
-    setCarro(tipoCarro);
+    setCarro(tipo_carro);
     setPlaca(placa);
     setPeso_max(peso_max);
     setVolume_max(volume_max);
@@ -21,19 +21,19 @@ Veiculo::Veiculo(string tipoCarro, string placa, float peso_max, float volume_ma
 
 Veiculo::~Veiculo() {}
 
-int Veiculo::setCarro(string tipoCarro)
+int Veiculo::setCarro(string tipo_carro)
 {
-    if (tipoCarro == "")
+    if (tipo_carro == "")
         return 0;
 
-    this->tipoCarro = tipoCarro;
+    this->tipo_carro = tipo_carro;
 
     return 1;
 }
 
 string Veiculo::getCarro()
 {
-    return this->tipoCarro;
+    return this->tipo_carro;
 }
 
 int Veiculo::setPlaca(string placa)

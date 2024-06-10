@@ -9,7 +9,7 @@ class Caminhao : public Veiculo
 
 public:
     Caminhao();
-    Caminhao(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao);
+    Caminhao(string tipo_carro, string placa, int peso_max, int volume_max, string localizacao);
     ~Caminhao();
 
     friend ostream &operator<<(ostream &out, Caminhao *caminhao);

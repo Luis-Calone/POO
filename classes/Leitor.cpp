@@ -37,6 +37,8 @@ int Leitor::lerArquivo(std::string arquivo, int size){
         std::getline(*file, linha);
     }
 
+    cout << linha << endl;
+
     int i, j;
 
     std::random_device rd;
@@ -65,6 +67,8 @@ int Leitor::lerArquivo(std::string arquivo, int size){
         
         std::istringstream linha2(linha);
 
+        cout << linha << endl;
+
         int flag = 0;
         aux = "";
 
@@ -86,42 +90,52 @@ int Leitor::lerArquivo(std::string arquivo, int size){
 
             case 0:
                 cliente_new->setNome(linha);
+                cout << linha << endl;
                 break;
 
             case 1:
                 cliente_new->setCpf(linha);
+                cout << linha << endl;
                 break;
 
             case 3:
                 cliente_new->setEndereco(linha);
+                cout << linha << endl;
                 break;
 
             case 4:
                 cliente_new->setTelefone(linha);
+                cout << linha << endl;
                 break;
 
             case 5:
                 cliente_new->setEmail(linha);
+                cout << linha << endl;
                 break;
 
             case 7:
                 pedido_new->setColeta(linha);
+                cout << linha << endl;
                 break;
             
             case 9:
                 pedido_new->setEntrega(linha);
+                cout << linha << endl;
                 break;
             
             case 10:
                 pedido_new->setPeso(std::stof(linha));
+                cout << linha << endl;
                 break;
             
             case 11:
                 pedido_new->setVolume(std::stof(linha));
+                cout << linha << endl;
                 break;
             
             case 12:
                 pedido_new->setPrioridade(linha == "sim");
+                cout << linha << endl;
                 break;
             
             default:

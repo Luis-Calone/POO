@@ -3,12 +3,12 @@
 
 Caminhao::Caminhao() : Veiculo() {}
 
-Caminhao::Caminhao(string tipoCarro, string placa, int capacidade, int quantidade, string localizacao) : Veiculo(tipoCarro, placa, capacidade, quantidade, localizacao)
+Caminhao::Caminhao(string tipo_carro, string placa, int peso_max, int volume_max, string localizacao) : Veiculo(tipo_carro, placa, peso_max, volume_max, localizacao)
 {
-    setCarro(tipoCarro);
+    setCarro(tipo_carro);
     setPlaca(placa);
-    setCapacidade(capacidade);
-    setQuantidade(quantidade);
+    setPeso_max(peso_max);
+    setVolume_max(peso_max);
     setLocalizacao(localizacao);
 }
 
@@ -17,9 +17,7 @@ Caminhao::~Caminhao() {}
 ostream &operator<<(ostream &out, Caminhao *veiculo)
 {
     out << "Veiculo: " << veiculo->getCarro() << endl
-        << "Placa: " << veiculo->getPlaca() << endl
-        << "Capacidade: " << veiculo->getCapacidade() << endl
-        << "Quantidade: " << veiculo->getQuantidade() << endl;
+        << "Placa: " << veiculo->getPlaca() << endl;
 
     return out;
 }

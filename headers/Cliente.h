@@ -32,6 +32,8 @@ public:
     string getTelefone();
     string getEmail();
     string getNome();
+
+    friend std::ostream& operator<<(std::ostream& os, const Cliente& cliente);
 };
 
 
